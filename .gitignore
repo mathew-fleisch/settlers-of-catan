@@ -2,3 +2,5 @@ catan
 frames/
 *.gif
 *.mp4
+!catan_preview.gif
+!catan_replay.mp4
