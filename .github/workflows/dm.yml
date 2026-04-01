@@ -1,14 +1,48 @@
 name: Dungeon Master
+
 on:
   push:
     paths:
       - 'game.yaml'
+  workflow_dispatch:
+
 jobs:
   rules-engine:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run Rules Engine
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Install Dependencies
         run: |
-          # The authoritative dm.sh logic will run here
-          echo "Triggering DM authoritative validation..."
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          # No Python rich needed as we use the Go built-in PNG renderer now
+
+      - name: Authoritative Rule Engine Check
+        run: |
+          chmod +x ./catan
+          # Run a check on the game state (e.g. validate last move)
+          # For now, we just ensure it can load and playback the log
+          ./catan dm playback
+          echo "Dungeon Master validated the latest game state."
+
+      - name: Generate Replay Assets
+        run: |
+          chmod +x ./generate_gif.sh
+          ./generate_gif.sh playback
+          echo "Replay assets (catan_preview.gif, catan_replay.mp4) generated."
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "dm-bot@example.com"
+          git config --local user.name "Dungeon Master Bot"
+          git add catan_preview.gif catan_replay.mp4 game.yaml
+          git commit -m "chore(dm): update game state and replay assets [skip ci]" || echo "No changes to commit"
+          git push
