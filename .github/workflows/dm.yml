@@ -1,0 +1,14 @@
+name: Dungeon Master
+on:
+  push:
+    paths:
+      - 'game.yaml'
+jobs:
+  rules-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Rules Engine
+        run: |
+          # The authoritative dm.sh logic will run here
+          echo "Triggering DM authoritative validation..."
