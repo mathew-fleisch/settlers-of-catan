@@ -1,6 +1,6 @@
 meta:
     status: setup
-    last_action_timestamp: 1776214824
+    last_action_timestamp: 1776214832
     timeout_seconds: 86400
     max_skips: 3
     turn_order:
@@ -160,6 +160,8 @@ board:
             owner_id: player-1
             type: settlement
     edges:
+        EC03:
+            owner_id: player-1
         ED04:
             owner_id: bot-2
         ED05:
@@ -344,3 +346,7 @@ log:
       player_id: player-1
       action: build_settlement
       data: VC03
+    - timestamp: 1776214832
+      player_id: player-1
+      action: build_road
+      data: EC03
