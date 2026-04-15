@@ -1,6 +1,6 @@
 meta:
     status: setup
-    last_action_timestamp: 1776214761
+    last_action_timestamp: 1776214768
     timeout_seconds: 86400
     max_skips: 3
     turn_order:
@@ -155,6 +155,8 @@ board:
             owner_id: bot-3
         EF07:
             owner_id: bot-3
+        EG06:
+            owner_id: player-1
     ports:
         P1: "3:1"
         P2: "3:1"
@@ -275,3 +277,7 @@ log:
       player_id: player-1
       action: build_settlement
       data: VG06
+    - timestamp: 1776214768
+      player_id: player-1
+      action: build_road
+      data: EG06
