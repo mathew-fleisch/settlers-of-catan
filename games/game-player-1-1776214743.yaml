@@ -1,15 +1,15 @@
 meta:
-    status: setup
-    last_action_timestamp: 1776214836
+    status: active
+    last_action_timestamp: 1776214858
     timeout_seconds: 86400
     max_skips: 3
     turn_order:
         - bot-3
         - player-1
         - bot-2
-    current_player_id: bot-3
+    current_player_id: player-1
     host_id: player-1
-    phase: setup_2
+    phase: action
     dev_card_deck:
         - road_building
         - knight
@@ -44,8 +44,8 @@ meta:
     longest_road_count: 0
     target_vp: 10
     bot_difficulty: 5
-    last_roll_1: 0
-    last_roll_2: 0
+    last_roll_1: 6
+    last_roll_2: 5
 board:
     hexes:
         TB06:
@@ -159,6 +159,9 @@ board:
         VG06:
             owner_id: player-1
             type: settlement
+        VI07:
+            owner_id: bot-3
+            type: settlement
     edges:
         EB04:
             owner_id: player-1
@@ -174,12 +177,16 @@ board:
             owner_id: bot-2
         EF07:
             owner_id: bot-3
+        EF08:
+            owner_id: bot-3
         EF09:
             owner_id: bot-2
         EG06:
             owner_id: player-1
         EG07:
             owner_id: player-1
+        EJ07:
+            owner_id: bot-3
     ports:
         P1: "3:1"
         P2: "3:1"
@@ -218,8 +225,8 @@ players:
     - id: bot-2
       type: bot
       resources:
-        brick: 0
-        ore: 2
+        brick: 1
+        ore: 4
         sheep: 0
         wheat: 0
         wood: 1
@@ -244,10 +251,10 @@ players:
       resources:
         brick: 0
         ore: 0
-        sheep: 0
+        sheep: 3
         wheat: 0
         wood: 0
-      vp: 1
+      vp: 2
       skip_count: 0
       dev_cards:
         knight: 0
@@ -360,3 +367,35 @@ log:
       player_id: player-1
       action: build_road
       data: EB04
+    - timestamp: 1776214839
+      player_id: bot-3
+      action: build_settlement
+      data: VI07
+    - timestamp: 1776214839
+      player_id: bot-3
+      action: build_road
+      data: EJ07
+    - timestamp: 1776214839
+      player_id: bot-3
+      action: end_turn
+      data: ""
+    - timestamp: 1776214839
+      player_id: bot-3
+      action: build_road
+      data: EF08
+    - timestamp: 1776214841
+      player_id: bot-3
+      action: roll
+      data: "9"
+    - timestamp: 1776214843
+      player_id: bot-3
+      action: submit_trade_offer
+      data: sheep:ore:1:1
+    - timestamp: 1776214843
+      player_id: bot-3
+      action: end_turn
+      data: ""
+    - timestamp: 1776214858
+      player_id: player-1
+      action: roll
+      data: "11"
