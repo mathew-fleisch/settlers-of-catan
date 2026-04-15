@@ -1,15 +1,15 @@
 meta:
     status: setup
-    last_action_timestamp: 1776214770
+    last_action_timestamp: 1776214824
     timeout_seconds: 86400
     max_skips: 3
     turn_order:
         - bot-3
         - player-1
         - bot-2
-    current_player_id: bot-2
+    current_player_id: player-1
     host_id: player-1
-    phase: setup_1
+    phase: setup_2
     dev_card_deck:
         - road_building
         - knight
@@ -144,17 +144,34 @@ board:
             robber: false
             vertices: VI06,VI07,VJ05,VJ08,VK06,VK07
     vertices:
+        VC03:
+            owner_id: player-1
+            type: settlement
+        VC06:
+            owner_id: bot-2
+            type: settlement
         VE07:
             owner_id: bot-3
+            type: settlement
+        VE10:
+            owner_id: bot-2
             type: settlement
         VG06:
             owner_id: player-1
             type: settlement
     edges:
+        ED04:
+            owner_id: bot-2
+        ED05:
+            owner_id: bot-2
         EE07:
             owner_id: bot-3
+        EE10:
+            owner_id: bot-2
         EF07:
             owner_id: bot-3
+        EF09:
+            owner_id: bot-2
         EG06:
             owner_id: player-1
         EG07:
@@ -178,7 +195,7 @@ players:
         sheep: 0
         wheat: 0
         wood: 0
-      vp: 1
+      vp: 2
       skip_count: 0
       dev_cards:
         knight: 0
@@ -198,11 +215,11 @@ players:
       type: bot
       resources:
         brick: 0
-        ore: 0
+        ore: 2
         sheep: 0
         wheat: 0
-        wood: 0
-      vp: 0
+        wood: 1
+      vp: 2
       skip_count: 0
       dev_cards:
         knight: 0
@@ -291,3 +308,39 @@ log:
       player_id: player-1
       action: build_road
       data: EG07
+    - timestamp: 1776214770
+      player_id: bot-2
+      action: build_settlement
+      data: VE10
+    - timestamp: 1776214770
+      player_id: bot-2
+      action: build_road
+      data: EF09
+    - timestamp: 1776214770
+      player_id: bot-2
+      action: end_turn
+      data: ""
+    - timestamp: 1776214770
+      player_id: bot-2
+      action: build_road
+      data: EE10
+    - timestamp: 1776214773
+      player_id: bot-2
+      action: build_settlement
+      data: VC06
+    - timestamp: 1776214773
+      player_id: bot-2
+      action: build_road
+      data: ED05
+    - timestamp: 1776214773
+      player_id: bot-2
+      action: end_turn
+      data: ""
+    - timestamp: 1776214773
+      player_id: bot-2
+      action: build_road
+      data: ED04
+    - timestamp: 1776214824
+      player_id: player-1
+      action: build_settlement
+      data: VC03
