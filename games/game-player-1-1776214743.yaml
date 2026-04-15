@@ -1,13 +1,13 @@
 meta:
     status: setup
-    last_action_timestamp: 1776214768
+    last_action_timestamp: 1776214770
     timeout_seconds: 86400
     max_skips: 3
     turn_order:
         - bot-3
         - player-1
         - bot-2
-    current_player_id: player-1
+    current_player_id: bot-2
     host_id: player-1
     phase: setup_1
     dev_card_deck:
@@ -157,6 +157,8 @@ board:
             owner_id: bot-3
         EG06:
             owner_id: player-1
+        EG07:
+            owner_id: player-1
     ports:
         P1: "3:1"
         P2: "3:1"
@@ -281,3 +283,11 @@ log:
       player_id: player-1
       action: build_road
       data: EG06
+    - timestamp: 1776214770
+      player_id: player-1
+      action: end_turn
+      data: ""
+    - timestamp: 1776214770
+      player_id: player-1
+      action: build_road
+      data: EG07
