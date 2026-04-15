@@ -1,6 +1,6 @@
 meta:
     status: active
-    last_action_timestamp: 1776214919
+    last_action_timestamp: 1776214921
     timeout_seconds: 86400
     max_skips: 3
     turn_order:
@@ -44,7 +44,7 @@ meta:
     longest_road_count: 0
     target_vp: 10
     bot_difficulty: 5
-    last_roll_1: 5
+    last_roll_1: 3
     last_roll_2: 3
 board:
     hexes:
@@ -202,10 +202,10 @@ players:
       type: git
       resources:
         brick: 0
-        ore: 0
+        ore: 1
         sheep: 1
         wheat: 0
-        wood: 0
+        wood: 1
       vp: 2
       skip_count: 0
       dev_cards:
@@ -226,7 +226,7 @@ players:
       type: bot
       resources:
         brick: 2
-        ore: 4
+        ore: 5
         sheep: 0
         wheat: 0
         wood: 1
@@ -253,7 +253,7 @@ players:
         ore: 0
         sheep: 4
         wheat: 0
-        wood: 0
+        wood: 1
       vp: 2
       skip_count: 0
       dev_cards:
@@ -403,3 +403,7 @@ log:
       player_id: player-1
       action: roll
       data: "8"
+    - timestamp: 1776214921
+      player_id: player-1
+      action: roll
+      data: "6"
